@@ -26,5 +26,11 @@ result = cv2.bitwise_and(image, image, mask=mask)
 cv2.imshow('Original', image)
 cv2.imshow('Red Filtered', result)
 
+lower_blue = np.array([110,100,100])
+upper_blue = np.array([130,255,255])
+mask = cv2.inRange(hsv, lower_blue, upper_blue)
+result = cv2.bitwise_and(image, image, mask=mask)
+cv2.imshow('Blue Filtered', result)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
